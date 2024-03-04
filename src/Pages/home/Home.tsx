@@ -1,10 +1,11 @@
 // import { useTelegram } from "../../Hooks/useTelegram.ts";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   // const { user } = useTelegram();
   const navigate = useNavigate();
+  const [admin] = useState(false);
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     console.log("This will log every 1 second!");
@@ -13,8 +14,10 @@ const Home = () => {
   //   return () => clearInterval(interval);
   // }, []);
   useEffect(() => {
-    navigate("/admin");
-  }, []);
+    if (admin) {
+      navigate("/admin");
+    }
+  }, [admin]);
 
   return <button onClick={() => navigate("/admin")}>Go to admin</button>;
 };
