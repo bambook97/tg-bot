@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { useTelegram } from "../../Hooks/useTelegram.ts";
 
 const Home = () => {
-  const tg = window.Telegram.WebApp;
-  const [data, setData] = useState("");
+  const { user } = useTelegram();
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     console.log("This will log every 1 second!");
@@ -11,11 +11,7 @@ const Home = () => {
   //   return () => clearInterval(interval);
   // }, []);
 
-  useEffect(() => {
-    setData(tg.initData);
-  }, []);
-
-  return <div style={{ backgroundColor: "gray" }}>{data}</div>;
+  return <div style={{ backgroundColor: "gray" }}>{user}</div>;
 };
 
 export default Home;
