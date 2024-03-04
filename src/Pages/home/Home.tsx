@@ -11,7 +11,7 @@ const Home = () => {
   //   return () => clearInterval(interval);
   // }, []);
 
-  return <div style={{ backgroundColor: "gray" }}>{user}</div>;
+  return <div style={{ backgroundColor: "gray" }}>{user?.id}</div>;
 };
 
 export default Home;
