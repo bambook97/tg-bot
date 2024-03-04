@@ -15,7 +15,7 @@ const Home = () => {
     setData(tg.initData);
   }, []);
 
-  return <div>{data}</div>;
+  return <div style={{ backgroundColor: "gray" }}>{data}</div>;
 };
 
 export default Home;
