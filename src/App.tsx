@@ -1,13 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routing/Router.tsx";
-import { useTelegram } from "./Hooks/useTelegram.ts";
+import { AdminProvider } from "./Routing/AdminProvider.tsx";
 
 const App = () => {
-  const { user } = useTelegram();
-  console.log(user);
   return (
     <div>
-      <RouterProvider router={router} />
+      <AdminProvider>
+        <RouterProvider router={router} />
+      </AdminProvider>
     </div>
   );
 };
