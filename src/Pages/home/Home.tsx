@@ -1,6 +1,7 @@
 // import { useTelegram } from "../../Hooks/useTelegram.ts";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import style from "./home.module.scss";
 
 const Home = () => {
   // const { user } = useTelegram();
@@ -19,7 +20,20 @@ const Home = () => {
     }
   }, [admin]);
 
-  return <button onClick={() => navigate("/admin")}>Go to admin</button>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+        background: "purple",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <span className={style.loader}>Сonnecting</span>
+      {/*<button onClick={() => navigate("/admin")}>Go to admin</button>*/}
+    </div>
+  );
 };
 
 export default Home;
