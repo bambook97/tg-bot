@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useTelegram } from "../../Hooks/useTelegram.ts";
 
 const Home = () => {
