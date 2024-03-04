@@ -28,10 +28,14 @@ const Home = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "column",
+        gap: "150px",
       }}
     >
       <span className={style.loader}>Сonnecting</span>
-      {/*<button onClick={() => navigate("/admin")}>Go to admin</button>*/}
+      <button className={style.btn} onClick={() => navigate("/admin")}>
+        Go to admin
+      </button>
     </div>
   );
 };
