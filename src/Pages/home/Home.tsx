@@ -40,12 +40,13 @@ const Home = () => {
         gap: "150px",
       }}
     >
-      <h1>{user}</h1>
       {isAdmin && (
         <button className={style.btn} onClick={() => navigate("/admin")}>
           Go to admin
         </button>
       )}
+      <h1>{user}</h1>
+
       <span className={style.loader}>{value}</span>
     </div>
   );
