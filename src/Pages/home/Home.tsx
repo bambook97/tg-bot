@@ -24,9 +24,6 @@ const Home = () => {
   }, []);
 
   const { isAdmin } = useContext(AdminContext);
-  useEffect(() => {
-    console.log(isAdmin);
-  }, [isAdmin]);
 
   return (
     <div
