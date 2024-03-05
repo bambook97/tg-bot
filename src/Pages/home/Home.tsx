@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      const response = await fetch("http://localhost:8000/info", {
+      const response = await fetch("http://127.0.0.1:8000/info", {
         method: "GET",
       });
       if (response.ok) {

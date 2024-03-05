@@ -16,7 +16,7 @@ export const AdminProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:8000/is_admin?id=${user}`, {
+      const res = await fetch(`http://127.0.0.1:8000/is_admin?id=${user}`, {
         method: "GET",
       });
       const data = await res.json();
