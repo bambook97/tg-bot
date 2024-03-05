@@ -16,9 +16,12 @@ export const AdminProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:8000/is_admin?id=${user}`, {
-        method: "GET",
-      });
+      const res = await fetch(
+        `http://localhost:8000/is_admin?id=${865683835}`,
+        {
+          method: "GET",
+        }
+      );
       const data = await res.json();
       setAdmin(data.success);
     };
