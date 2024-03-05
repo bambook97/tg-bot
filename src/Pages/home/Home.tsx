@@ -1,24 +1,30 @@
-// import { useTelegram } from "../../Hooks/useTelegram.ts";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import style from "./home.module.scss";
+import { AdminContext } from "../../lib/adminContext.tsx";
 
 const Home = () => {
-  // const { user } = useTelegram();
   const navigate = useNavigate();
-  const [admin] = useState(false);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     console.log("This will log every 1 second!");
-  //   }, 500);
-  //
-  //   return () => clearInterval(interval);
-  // }, []);
+  const [value, setValue] = useState("Connecting...");
+
   useEffect(() => {
-    if (admin) {
-      navigate("/admin");
-    }
-  }, [admin]);
+    const interval = setInterval(async () => {
+      const response = await fetch("http://localhost:8000/info", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setValue(data.success.info);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const { isAdmin } = useContext(AdminContext);
+  useEffect(() => {
+    console.log(isAdmin);
+  }, [isAdmin]);
 
   return (
     <div
@@ -32,10 +38,12 @@ const Home = () => {
         gap: "150px",
       }}
     >
-      <span className={style.loader}>Сonnecting</span>
-      <button className={style.btn} onClick={() => navigate("/admin")}>
-        Go to admin
-      </button>
+      <span className={style.loader}>{value}</span>
+      {isAdmin && (
+        <button className={style.btn} onClick={() => navigate("/admin")}>
+          Go to admin
+        </button>
+      )}
     </div>
   );
 };
