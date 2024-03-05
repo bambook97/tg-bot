@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import style from "./home.module.scss";
 import { AdminContext } from "../../lib/adminContext.tsx";
+import backImage from "/src/Assets/back.webp";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Home = () => {
 
   return (
     <div className={style.wrapper}>
-      <img src={"/src/Assets/back.webp"} alt={""} className={style.img} />
+      <img src={backImage} alt={""} className={style.img} />
       <span className={style.loader}>{value}</span>
       {isAdmin && (
         <button className={style.btn} onClick={() => navigate("/admin")}>
