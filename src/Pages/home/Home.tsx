@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      const response = await fetch("http://127.0.0.1:8000/info", {
+      const response = await fetch("http://localhost:8000/info", {
         method: "GET",
       });
       if (response.ok) {
@@ -24,24 +24,14 @@ const Home = () => {
   const { isAdmin } = useContext(AdminContext);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        background: "purple",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        gap: "150px",
-      }}
-    >
+    <div className={style.wrapper}>
+      <img src={"/src/Assets/back.webp"} alt={""} className={style.img} />
+      <span className={style.loader}>{value}</span>
       {isAdmin && (
         <button className={style.btn} onClick={() => navigate("/admin")}>
           Go to admin
         </button>
       )}
-
-      <span className={style.loader}>{value}</span>
     </div>
   );
 };
