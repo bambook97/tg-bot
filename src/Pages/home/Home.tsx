@@ -2,12 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import style from "./home.module.scss";
 import { AdminContext } from "../../lib/adminContext.tsx";
-import { useTelegram } from "../../Hooks/useTelegram.ts";
 
 const Home = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("Connecting...");
-  const { user } = useTelegram();
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -42,7 +40,6 @@ const Home = () => {
           Go to admin
         </button>
       )}
-      <h1>{user}</h1>
 
       <span className={style.loader}>{value}</span>
     </div>
