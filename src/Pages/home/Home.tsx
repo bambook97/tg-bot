@@ -16,7 +16,7 @@ const Home = () => {
         const data = await response.json();
         setValue(data.success.info);
       }
-    }, 1000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -38,12 +38,12 @@ const Home = () => {
         gap: "150px",
       }}
     >
-      <span className={style.loader}>{value}</span>
       {isAdmin && (
         <button className={style.btn} onClick={() => navigate("/admin")}>
           Go to admin
         </button>
       )}
+      <span className={style.loader}>{value}</span>
     </div>
   );
 };
