@@ -16,7 +16,7 @@ const Home = () => {
         const data = await response.json();
         setValue(data.success.info);
       }
-    }, 10000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
