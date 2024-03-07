@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./home.module.scss";
-import { AdminContext } from "../../lib/adminContext.tsx";
+// import { AdminContext } from "../../lib/adminContext.tsx";
 import backImage from "/src/Assets/back.webp";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      const response = await fetch("http://localhost:8000/info", {
+      const response = await fetch("https://botmedved.pro/api/info", {
         method: "GET",
       });
       if (response.ok) {
@@ -22,7 +22,7 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const { isAdmin } = useContext(AdminContext);
+  // const { isAdmin } = useContext(AdminContext);
 
   return (
     <div className={style.wrapper}>
