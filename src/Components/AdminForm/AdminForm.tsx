@@ -11,7 +11,7 @@ export const AdminForm = ({ initValue }: Props) => {
     onSubmit: () => onSubmit(formik.values),
   });
   const onSubmit = async (values) => {
-    const response = await fetch("https://botmedved.pro/api//info", {
+    const response = await fetch("https://botmedved.pro/api/info", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import style from "./home.module.scss";
-// import { AdminContext } from "../../lib/adminContext.tsx";
+import { AdminContext } from "../../lib/adminContext.tsx";
 import backImage from "/src/Assets/back.webp";
 
 const Home = () => {
@@ -22,15 +22,17 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // const { isAdmin } = useContext(AdminContext);
+  const { isAdmin } = useContext(AdminContext);
 
   return (
     <div className={style.wrapper}>
       <img src={backImage} alt={""} className={style.img} />
       <span className={style.loader}>{value}</span>
-      <button className={style.btn} onClick={() => navigate("/admin")}>
-        Go to admin
-      </button>
+      {isAdmin && (
+        <button className={style.btn} onClick={() => navigate("/admin")}>
+          Go to admin
+        </button>
+      )}
     </div>
   );
 };
