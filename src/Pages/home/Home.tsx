@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      const response = await fetch("http://localhost:8000/api/info", {
+      const response = await fetch("http://localhost:8000/info", {
         method: "GET",
       });
       if (response.ok) {
@@ -28,11 +28,9 @@ const Home = () => {
     <div className={style.wrapper}>
       <img src={backImage} alt={""} className={style.img} />
       <span className={style.loader}>{value}</span>
-      {isAdmin && (
-        <button className={style.btn} onClick={() => navigate("/admin")}>
-          Go to admin
-        </button>
-      )}
+      <button className={style.btn} onClick={() => navigate("/admin")}>
+        Go to admin
+      </button>
     </div>
   );
 };
